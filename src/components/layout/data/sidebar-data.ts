@@ -1,49 +1,39 @@
 import {
-  IconBarrierBlock,
-  IconBrowserCheck,
-  IconBug,
-  IconChecklist,
-  IconError404,
-  IconHelp,
   IconLayoutDashboard,
-  IconLock,
-  IconLockAccess,
-  IconMessages,
-  IconNotification,
-  IconPackages,
-  IconPalette,
-  IconServerOff,
-  IconSettings,
-  IconTool,
-  IconUserCog,
-  IconUserOff,
+  IconCreditCard,
+  IconReceipt,
+  IconExchange,
   IconUsers,
+  IconPrinter,
+  IconInfoCircle,
+  IconCode,
+  IconFileInvoice,
+  IconClipboardList,
+  IconSum,
+  IconBankTransfer,
+  IconCoinYuan,
+  IconWallet,
+  IconUserCircle,
+  IconTrendingUp,
+  IconFileText,
+  IconSpeakerphone,
+  IconBook,
+  IconDots
 } from '@tabler/icons-react'
-import { AudioWaveform, Command, GalleryVerticalEnd } from 'lucide-react'
-import { ClerkLogo } from '@/assets/clerk-logo'
+import { Command } from 'lucide-react'
 import { type SidebarData } from '../types'
 
 export const sidebarData: SidebarData = {
   user: {
-    name: 'satnaing',
-    email: 'satnaingdev@gmail.com',
-    avatar: '/avatars/shadcn.jpg',
+    name: 'Admin User',
+    email: 'admin@timsakti.com',
+    avatar: '/avatars/admin.jpg',
   },
   teams: [
     {
-      name: 'Shadcn Admin',
+      name: 'Tim Sakti',
       logo: Command,
-      plan: 'Vite + ShadcnUI',
-    },
-    {
-      name: 'Acme Inc',
-      logo: GalleryVerticalEnd,
-      plan: 'Enterprise',
-    },
-    {
-      name: 'Acme Corp.',
-      logo: AudioWaveform,
-      plan: 'Startup',
+      plan: 'Dashboard Monitoring',
     },
   ],
   navGroups: [
@@ -55,147 +45,134 @@ export const sidebarData: SidebarData = {
           url: '/',
           icon: IconLayoutDashboard,
         },
+      ],
+    },
+    {
+      title: 'Transaksi',
+      items: [
         {
-          title: 'Tasks',
-          url: '/tasks',
-          icon: IconChecklist,
+          title: 'Transaksi',
+          icon: IconCreditCard,
+          items: [
+            {
+              title: 'Cek Transaksi',
+              url: '/transaksi/cek',
+            },
+            {
+              title: 'List Transaksi',
+              url: '/transaksi/list',
+            },
+            {
+              title: 'Total Transaksi',
+              url: '/transaksi/total',
+            },
+            {
+              title: 'Invoice',
+              url: '/transaksi/invoice',
+            },
+          ],
         },
+      ],
+    },
+    {
+      title: 'Mutasi',
+      items: [
         {
-          title: 'Apps',
-          url: '/apps',
-          icon: IconPackages,
+          title: 'Mutasi',
+          icon: IconExchange,
+          items: [
+            {
+              title: 'Mutasi Transaksi',
+              url: '/mutasi/transaksi',
+            },
+            {
+              title: 'Mutasi Deposit',
+              url: '/mutasi/deposit',
+            },
+            {
+              title: 'Mutasi Saldo',
+              url: '/mutasi/saldo',
+            },
+          ],
         },
+      ],
+    },
+    {
+      title: 'Downline',
+      items: [
         {
-          title: 'Chats',
-          url: '/chats',
-          badge: '3',
-          icon: IconMessages,
-        },
-        {
-          title: 'Users',
-          url: '/users',
+          title: 'Downline',
           icon: IconUsers,
-        },
-        {
-          title: 'Secured by Clerk',
-          icon: ClerkLogo,
           items: [
             {
-              title: 'Sign In',
-              url: '/clerk/sign-in',
+              title: 'List Downline',
+              url: '/downline/list',
             },
             {
-              title: 'Sign Up',
-              url: '/clerk/sign-up',
+              title: 'Cek Transaksi Downline',
+              url: '/downline/cek-transaksi',
             },
             {
-              title: 'User Management',
-              url: '/clerk/user-management',
+              title: 'List Transaksi Downline',
+              url: '/downline/list-transaksi',
+            },
+            {
+              title: 'Total Transaksi Downline',
+              url: '/downline/total-transaksi',
+            },
+            {
+              title: 'Rekap Komisi',
+              url: '/downline/rekap-komisi',
             },
           ],
         },
       ],
     },
     {
-      title: 'Pages',
+      title: 'Cetak Struk',
       items: [
         {
-          title: 'Auth',
-          icon: IconLockAccess,
-          items: [
-            {
-              title: 'Sign In',
-              url: '/sign-in',
-            },
-            {
-              title: 'Sign In (2 Col)',
-              url: '/sign-in-2',
-            },
-            {
-              title: 'Sign Up',
-              url: '/sign-up',
-            },
-            {
-              title: 'Forgot Password',
-              url: '/forgot-password',
-            },
-            {
-              title: 'OTP',
-              url: '/otp',
-            },
-          ],
+          title: 'Cetak Struk',
+          url: '/cetak-struk',
+          icon: IconPrinter,
         },
+      ],
+    },
+    {
+      title: 'Informasi',
+      items: [
         {
-          title: 'Errors',
-          icon: IconBug,
+          title: 'Informasi',
+          icon: IconInfoCircle,
           items: [
             {
-              title: 'Unauthorized',
-              url: '/401',
-              icon: IconLock,
+              title: 'Daftar Harga',
+              url: '/informasi/daftar-harga',
             },
             {
-              title: 'Forbidden',
-              url: '/403',
-              icon: IconUserOff,
-            },
-            {
-              title: 'Not Found',
-              url: '/404',
-              icon: IconError404,
-            },
-            {
-              title: 'Internal Server Error',
-              url: '/500',
-              icon: IconServerOff,
-            },
-            {
-              title: 'Maintenance Error',
-              url: '/503',
-              icon: IconBarrierBlock,
+              title: 'Pengumuman',
+              url: '/informasi/pengumuman',
             },
           ],
         },
       ],
     },
     {
-      title: 'Other',
+      title: 'Docs API',
       items: [
         {
-          title: 'Settings',
-          icon: IconSettings,
+          title: 'Docs API',
+          icon: IconCode,
           items: [
             {
-              title: 'Profile',
-              url: '/settings',
-              icon: IconUserCog,
+              title: 'Docs API',
+              url: '/docs-api/documentation',
             },
             {
-              title: 'Account',
-              url: '/settings/account',
-              icon: IconTool,
-            },
-            {
-              title: 'Appearance',
-              url: '/settings/appearance',
-              icon: IconPalette,
-            },
-            {
-              title: 'Notifications',
-              url: '/settings/notifications',
-              icon: IconNotification,
-            },
-            {
-              title: 'Display',
-              url: '/settings/display',
-              icon: IconBrowserCheck,
+              title: 'Lainnya',
+              url: '/docs-api/lainnya',
             },
           ],
-        },
-        {
-          title: 'Help Center',
-          url: '/help-center',
-          icon: IconHelp,
         },
       ],
     },

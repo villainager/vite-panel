@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as ClerkRouteRouteImport } from './routes/clerk/route'
 import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as AuthenticatedIndexRouteImport } from './routes/_authenticated/index'
+import { Route as AuthenticatedCetakStrukRouteImport } from './routes/_authenticated/cetak-struk'
 import { Route as errors503RouteImport } from './routes/(errors)/503'
 import { Route as errors500RouteImport } from './routes/(errors)/500'
 import { Route as errors404RouteImport } from './routes/(errors)/404'
@@ -34,10 +35,26 @@ import { Route as AuthenticatedAppsIndexRouteImport } from './routes/_authentica
 import { Route as ClerkAuthenticatedUserManagementRouteImport } from './routes/clerk/_authenticated/user-management'
 import { Route as ClerkauthSignUpRouteImport } from './routes/clerk/(auth)/sign-up'
 import { Route as ClerkauthSignInRouteImport } from './routes/clerk/(auth)/sign-in'
+import { Route as AuthenticatedTransaksiTotalRouteImport } from './routes/_authenticated/transaksi/total'
+import { Route as AuthenticatedTransaksiListRouteImport } from './routes/_authenticated/transaksi/list'
+import { Route as AuthenticatedTransaksiInvoiceRouteImport } from './routes/_authenticated/transaksi/invoice'
+import { Route as AuthenticatedTransaksiCekRouteImport } from './routes/_authenticated/transaksi/cek'
 import { Route as AuthenticatedSettingsNotificationsRouteImport } from './routes/_authenticated/settings/notifications'
 import { Route as AuthenticatedSettingsDisplayRouteImport } from './routes/_authenticated/settings/display'
 import { Route as AuthenticatedSettingsAppearanceRouteImport } from './routes/_authenticated/settings/appearance'
 import { Route as AuthenticatedSettingsAccountRouteImport } from './routes/_authenticated/settings/account'
+import { Route as AuthenticatedMutasiTransaksiRouteImport } from './routes/_authenticated/mutasi/transaksi'
+import { Route as AuthenticatedMutasiSaldoRouteImport } from './routes/_authenticated/mutasi/saldo'
+import { Route as AuthenticatedMutasiDepositRouteImport } from './routes/_authenticated/mutasi/deposit'
+import { Route as AuthenticatedInformasiPengumumanRouteImport } from './routes/_authenticated/informasi/pengumuman'
+import { Route as AuthenticatedInformasiDaftarHargaRouteImport } from './routes/_authenticated/informasi/daftar-harga'
+import { Route as AuthenticatedDownlineTotalTransaksiRouteImport } from './routes/_authenticated/downline/total-transaksi'
+import { Route as AuthenticatedDownlineRekapKomisiRouteImport } from './routes/_authenticated/downline/rekap-komisi'
+import { Route as AuthenticatedDownlineListTransaksiRouteImport } from './routes/_authenticated/downline/list-transaksi'
+import { Route as AuthenticatedDownlineListRouteImport } from './routes/_authenticated/downline/list'
+import { Route as AuthenticatedDownlineCekTransaksiRouteImport } from './routes/_authenticated/downline/cek-transaksi'
+import { Route as AuthenticatedDocsApiLainnyaRouteImport } from './routes/_authenticated/docs-api/lainnya'
+import { Route as AuthenticatedDocsApiDocumentationRouteImport } from './routes/_authenticated/docs-api/documentation'
 
 const ClerkRouteRoute = ClerkRouteRouteImport.update({
   id: '/clerk',
@@ -51,6 +68,11 @@ const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
 const AuthenticatedIndexRoute = AuthenticatedIndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedCetakStrukRoute = AuthenticatedCetakStrukRouteImport.update({
+  id: '/cetak-struk',
+  path: '/cetak-struk',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
 const errors503Route = errors503RouteImport.update({
@@ -165,6 +187,30 @@ const ClerkauthSignInRoute = ClerkauthSignInRouteImport.update({
   path: '/sign-in',
   getParentRoute: () => ClerkauthRouteRoute,
 } as any)
+const AuthenticatedTransaksiTotalRoute =
+  AuthenticatedTransaksiTotalRouteImport.update({
+    id: '/transaksi/total',
+    path: '/transaksi/total',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedTransaksiListRoute =
+  AuthenticatedTransaksiListRouteImport.update({
+    id: '/transaksi/list',
+    path: '/transaksi/list',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedTransaksiInvoiceRoute =
+  AuthenticatedTransaksiInvoiceRouteImport.update({
+    id: '/transaksi/invoice',
+    path: '/transaksi/invoice',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedTransaksiCekRoute =
+  AuthenticatedTransaksiCekRouteImport.update({
+    id: '/transaksi/cek',
+    path: '/transaksi/cek',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 const AuthenticatedSettingsNotificationsRoute =
   AuthenticatedSettingsNotificationsRouteImport.update({
     id: '/notifications',
@@ -189,6 +235,78 @@ const AuthenticatedSettingsAccountRoute =
     path: '/account',
     getParentRoute: () => AuthenticatedSettingsRouteRoute,
   } as any)
+const AuthenticatedMutasiTransaksiRoute =
+  AuthenticatedMutasiTransaksiRouteImport.update({
+    id: '/mutasi/transaksi',
+    path: '/mutasi/transaksi',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedMutasiSaldoRoute =
+  AuthenticatedMutasiSaldoRouteImport.update({
+    id: '/mutasi/saldo',
+    path: '/mutasi/saldo',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedMutasiDepositRoute =
+  AuthenticatedMutasiDepositRouteImport.update({
+    id: '/mutasi/deposit',
+    path: '/mutasi/deposit',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedInformasiPengumumanRoute =
+  AuthenticatedInformasiPengumumanRouteImport.update({
+    id: '/informasi/pengumuman',
+    path: '/informasi/pengumuman',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedInformasiDaftarHargaRoute =
+  AuthenticatedInformasiDaftarHargaRouteImport.update({
+    id: '/informasi/daftar-harga',
+    path: '/informasi/daftar-harga',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedDownlineTotalTransaksiRoute =
+  AuthenticatedDownlineTotalTransaksiRouteImport.update({
+    id: '/downline/total-transaksi',
+    path: '/downline/total-transaksi',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedDownlineRekapKomisiRoute =
+  AuthenticatedDownlineRekapKomisiRouteImport.update({
+    id: '/downline/rekap-komisi',
+    path: '/downline/rekap-komisi',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedDownlineListTransaksiRoute =
+  AuthenticatedDownlineListTransaksiRouteImport.update({
+    id: '/downline/list-transaksi',
+    path: '/downline/list-transaksi',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedDownlineListRoute =
+  AuthenticatedDownlineListRouteImport.update({
+    id: '/downline/list',
+    path: '/downline/list',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedDownlineCekTransaksiRoute =
+  AuthenticatedDownlineCekTransaksiRouteImport.update({
+    id: '/downline/cek-transaksi',
+    path: '/downline/cek-transaksi',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedDocsApiLainnyaRoute =
+  AuthenticatedDocsApiLainnyaRouteImport.update({
+    id: '/docs-api/lainnya',
+    path: '/docs-api/lainnya',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedDocsApiDocumentationRoute =
+  AuthenticatedDocsApiDocumentationRouteImport.update({
+    id: '/docs-api/documentation',
+    path: '/docs-api/documentation',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/clerk': typeof ClerkAuthenticatedRouteRouteWithChildren
@@ -204,11 +322,28 @@ export interface FileRoutesByFullPath {
   '/404': typeof errors404Route
   '/500': typeof errors500Route
   '/503': typeof errors503Route
+  '/cetak-struk': typeof AuthenticatedCetakStrukRoute
   '/': typeof AuthenticatedIndexRoute
+  '/docs-api/documentation': typeof AuthenticatedDocsApiDocumentationRoute
+  '/docs-api/lainnya': typeof AuthenticatedDocsApiLainnyaRoute
+  '/downline/cek-transaksi': typeof AuthenticatedDownlineCekTransaksiRoute
+  '/downline/list': typeof AuthenticatedDownlineListRoute
+  '/downline/list-transaksi': typeof AuthenticatedDownlineListTransaksiRoute
+  '/downline/rekap-komisi': typeof AuthenticatedDownlineRekapKomisiRoute
+  '/downline/total-transaksi': typeof AuthenticatedDownlineTotalTransaksiRoute
+  '/informasi/daftar-harga': typeof AuthenticatedInformasiDaftarHargaRoute
+  '/informasi/pengumuman': typeof AuthenticatedInformasiPengumumanRoute
+  '/mutasi/deposit': typeof AuthenticatedMutasiDepositRoute
+  '/mutasi/saldo': typeof AuthenticatedMutasiSaldoRoute
+  '/mutasi/transaksi': typeof AuthenticatedMutasiTransaksiRoute
   '/settings/account': typeof AuthenticatedSettingsAccountRoute
   '/settings/appearance': typeof AuthenticatedSettingsAppearanceRoute
   '/settings/display': typeof AuthenticatedSettingsDisplayRoute
   '/settings/notifications': typeof AuthenticatedSettingsNotificationsRoute
+  '/transaksi/cek': typeof AuthenticatedTransaksiCekRoute
+  '/transaksi/invoice': typeof AuthenticatedTransaksiInvoiceRoute
+  '/transaksi/list': typeof AuthenticatedTransaksiListRoute
+  '/transaksi/total': typeof AuthenticatedTransaksiTotalRoute
   '/clerk/sign-in': typeof ClerkauthSignInRoute
   '/clerk/sign-up': typeof ClerkauthSignUpRoute
   '/clerk/user-management': typeof ClerkAuthenticatedUserManagementRoute
@@ -231,11 +366,28 @@ export interface FileRoutesByTo {
   '/404': typeof errors404Route
   '/500': typeof errors500Route
   '/503': typeof errors503Route
+  '/cetak-struk': typeof AuthenticatedCetakStrukRoute
   '/': typeof AuthenticatedIndexRoute
+  '/docs-api/documentation': typeof AuthenticatedDocsApiDocumentationRoute
+  '/docs-api/lainnya': typeof AuthenticatedDocsApiLainnyaRoute
+  '/downline/cek-transaksi': typeof AuthenticatedDownlineCekTransaksiRoute
+  '/downline/list': typeof AuthenticatedDownlineListRoute
+  '/downline/list-transaksi': typeof AuthenticatedDownlineListTransaksiRoute
+  '/downline/rekap-komisi': typeof AuthenticatedDownlineRekapKomisiRoute
+  '/downline/total-transaksi': typeof AuthenticatedDownlineTotalTransaksiRoute
+  '/informasi/daftar-harga': typeof AuthenticatedInformasiDaftarHargaRoute
+  '/informasi/pengumuman': typeof AuthenticatedInformasiPengumumanRoute
+  '/mutasi/deposit': typeof AuthenticatedMutasiDepositRoute
+  '/mutasi/saldo': typeof AuthenticatedMutasiSaldoRoute
+  '/mutasi/transaksi': typeof AuthenticatedMutasiTransaksiRoute
   '/settings/account': typeof AuthenticatedSettingsAccountRoute
   '/settings/appearance': typeof AuthenticatedSettingsAppearanceRoute
   '/settings/display': typeof AuthenticatedSettingsDisplayRoute
   '/settings/notifications': typeof AuthenticatedSettingsNotificationsRoute
+  '/transaksi/cek': typeof AuthenticatedTransaksiCekRoute
+  '/transaksi/invoice': typeof AuthenticatedTransaksiInvoiceRoute
+  '/transaksi/list': typeof AuthenticatedTransaksiListRoute
+  '/transaksi/total': typeof AuthenticatedTransaksiTotalRoute
   '/clerk/sign-in': typeof ClerkauthSignInRoute
   '/clerk/sign-up': typeof ClerkauthSignUpRoute
   '/clerk/user-management': typeof ClerkAuthenticatedUserManagementRoute
@@ -263,11 +415,28 @@ export interface FileRoutesById {
   '/(errors)/404': typeof errors404Route
   '/(errors)/500': typeof errors500Route
   '/(errors)/503': typeof errors503Route
+  '/_authenticated/cetak-struk': typeof AuthenticatedCetakStrukRoute
   '/_authenticated/': typeof AuthenticatedIndexRoute
+  '/_authenticated/docs-api/documentation': typeof AuthenticatedDocsApiDocumentationRoute
+  '/_authenticated/docs-api/lainnya': typeof AuthenticatedDocsApiLainnyaRoute
+  '/_authenticated/downline/cek-transaksi': typeof AuthenticatedDownlineCekTransaksiRoute
+  '/_authenticated/downline/list': typeof AuthenticatedDownlineListRoute
+  '/_authenticated/downline/list-transaksi': typeof AuthenticatedDownlineListTransaksiRoute
+  '/_authenticated/downline/rekap-komisi': typeof AuthenticatedDownlineRekapKomisiRoute
+  '/_authenticated/downline/total-transaksi': typeof AuthenticatedDownlineTotalTransaksiRoute
+  '/_authenticated/informasi/daftar-harga': typeof AuthenticatedInformasiDaftarHargaRoute
+  '/_authenticated/informasi/pengumuman': typeof AuthenticatedInformasiPengumumanRoute
+  '/_authenticated/mutasi/deposit': typeof AuthenticatedMutasiDepositRoute
+  '/_authenticated/mutasi/saldo': typeof AuthenticatedMutasiSaldoRoute
+  '/_authenticated/mutasi/transaksi': typeof AuthenticatedMutasiTransaksiRoute
   '/_authenticated/settings/account': typeof AuthenticatedSettingsAccountRoute
   '/_authenticated/settings/appearance': typeof AuthenticatedSettingsAppearanceRoute
   '/_authenticated/settings/display': typeof AuthenticatedSettingsDisplayRoute
   '/_authenticated/settings/notifications': typeof AuthenticatedSettingsNotificationsRoute
+  '/_authenticated/transaksi/cek': typeof AuthenticatedTransaksiCekRoute
+  '/_authenticated/transaksi/invoice': typeof AuthenticatedTransaksiInvoiceRoute
+  '/_authenticated/transaksi/list': typeof AuthenticatedTransaksiListRoute
+  '/_authenticated/transaksi/total': typeof AuthenticatedTransaksiTotalRoute
   '/clerk/(auth)/sign-in': typeof ClerkauthSignInRoute
   '/clerk/(auth)/sign-up': typeof ClerkauthSignUpRoute
   '/clerk/_authenticated/user-management': typeof ClerkAuthenticatedUserManagementRoute
@@ -294,11 +463,28 @@ export interface FileRouteTypes {
     | '/404'
     | '/500'
     | '/503'
+    | '/cetak-struk'
     | '/'
+    | '/docs-api/documentation'
+    | '/docs-api/lainnya'
+    | '/downline/cek-transaksi'
+    | '/downline/list'
+    | '/downline/list-transaksi'
+    | '/downline/rekap-komisi'
+    | '/downline/total-transaksi'
+    | '/informasi/daftar-harga'
+    | '/informasi/pengumuman'
+    | '/mutasi/deposit'
+    | '/mutasi/saldo'
+    | '/mutasi/transaksi'
     | '/settings/account'
     | '/settings/appearance'
     | '/settings/display'
     | '/settings/notifications'
+    | '/transaksi/cek'
+    | '/transaksi/invoice'
+    | '/transaksi/list'
+    | '/transaksi/total'
     | '/clerk/sign-in'
     | '/clerk/sign-up'
     | '/clerk/user-management'
@@ -321,11 +507,28 @@ export interface FileRouteTypes {
     | '/404'
     | '/500'
     | '/503'
+    | '/cetak-struk'
     | '/'
+    | '/docs-api/documentation'
+    | '/docs-api/lainnya'
+    | '/downline/cek-transaksi'
+    | '/downline/list'
+    | '/downline/list-transaksi'
+    | '/downline/rekap-komisi'
+    | '/downline/total-transaksi'
+    | '/informasi/daftar-harga'
+    | '/informasi/pengumuman'
+    | '/mutasi/deposit'
+    | '/mutasi/saldo'
+    | '/mutasi/transaksi'
     | '/settings/account'
     | '/settings/appearance'
     | '/settings/display'
     | '/settings/notifications'
+    | '/transaksi/cek'
+    | '/transaksi/invoice'
+    | '/transaksi/list'
+    | '/transaksi/total'
     | '/clerk/sign-in'
     | '/clerk/sign-up'
     | '/clerk/user-management'
@@ -352,11 +555,28 @@ export interface FileRouteTypes {
     | '/(errors)/404'
     | '/(errors)/500'
     | '/(errors)/503'
+    | '/_authenticated/cetak-struk'
     | '/_authenticated/'
+    | '/_authenticated/docs-api/documentation'
+    | '/_authenticated/docs-api/lainnya'
+    | '/_authenticated/downline/cek-transaksi'
+    | '/_authenticated/downline/list'
+    | '/_authenticated/downline/list-transaksi'
+    | '/_authenticated/downline/rekap-komisi'
+    | '/_authenticated/downline/total-transaksi'
+    | '/_authenticated/informasi/daftar-harga'
+    | '/_authenticated/informasi/pengumuman'
+    | '/_authenticated/mutasi/deposit'
+    | '/_authenticated/mutasi/saldo'
+    | '/_authenticated/mutasi/transaksi'
     | '/_authenticated/settings/account'
     | '/_authenticated/settings/appearance'
     | '/_authenticated/settings/display'
     | '/_authenticated/settings/notifications'
+    | '/_authenticated/transaksi/cek'
+    | '/_authenticated/transaksi/invoice'
+    | '/_authenticated/transaksi/list'
+    | '/_authenticated/transaksi/total'
     | '/clerk/(auth)/sign-in'
     | '/clerk/(auth)/sign-up'
     | '/clerk/_authenticated/user-management'
@@ -404,6 +624,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof AuthenticatedIndexRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/cetak-struk': {
+      id: '/_authenticated/cetak-struk'
+      path: '/cetak-struk'
+      fullPath: '/cetak-struk'
+      preLoaderRoute: typeof AuthenticatedCetakStrukRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
     '/(errors)/503': {
@@ -560,6 +787,34 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ClerkauthSignInRouteImport
       parentRoute: typeof ClerkauthRouteRoute
     }
+    '/_authenticated/transaksi/total': {
+      id: '/_authenticated/transaksi/total'
+      path: '/transaksi/total'
+      fullPath: '/transaksi/total'
+      preLoaderRoute: typeof AuthenticatedTransaksiTotalRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/transaksi/list': {
+      id: '/_authenticated/transaksi/list'
+      path: '/transaksi/list'
+      fullPath: '/transaksi/list'
+      preLoaderRoute: typeof AuthenticatedTransaksiListRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/transaksi/invoice': {
+      id: '/_authenticated/transaksi/invoice'
+      path: '/transaksi/invoice'
+      fullPath: '/transaksi/invoice'
+      preLoaderRoute: typeof AuthenticatedTransaksiInvoiceRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/transaksi/cek': {
+      id: '/_authenticated/transaksi/cek'
+      path: '/transaksi/cek'
+      fullPath: '/transaksi/cek'
+      preLoaderRoute: typeof AuthenticatedTransaksiCekRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/settings/notifications': {
       id: '/_authenticated/settings/notifications'
       path: '/notifications'
@@ -587,6 +842,90 @@ declare module '@tanstack/react-router' {
       fullPath: '/settings/account'
       preLoaderRoute: typeof AuthenticatedSettingsAccountRouteImport
       parentRoute: typeof AuthenticatedSettingsRouteRoute
+    }
+    '/_authenticated/mutasi/transaksi': {
+      id: '/_authenticated/mutasi/transaksi'
+      path: '/mutasi/transaksi'
+      fullPath: '/mutasi/transaksi'
+      preLoaderRoute: typeof AuthenticatedMutasiTransaksiRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/mutasi/saldo': {
+      id: '/_authenticated/mutasi/saldo'
+      path: '/mutasi/saldo'
+      fullPath: '/mutasi/saldo'
+      preLoaderRoute: typeof AuthenticatedMutasiSaldoRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/mutasi/deposit': {
+      id: '/_authenticated/mutasi/deposit'
+      path: '/mutasi/deposit'
+      fullPath: '/mutasi/deposit'
+      preLoaderRoute: typeof AuthenticatedMutasiDepositRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/informasi/pengumuman': {
+      id: '/_authenticated/informasi/pengumuman'
+      path: '/informasi/pengumuman'
+      fullPath: '/informasi/pengumuman'
+      preLoaderRoute: typeof AuthenticatedInformasiPengumumanRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/informasi/daftar-harga': {
+      id: '/_authenticated/informasi/daftar-harga'
+      path: '/informasi/daftar-harga'
+      fullPath: '/informasi/daftar-harga'
+      preLoaderRoute: typeof AuthenticatedInformasiDaftarHargaRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/downline/total-transaksi': {
+      id: '/_authenticated/downline/total-transaksi'
+      path: '/downline/total-transaksi'
+      fullPath: '/downline/total-transaksi'
+      preLoaderRoute: typeof AuthenticatedDownlineTotalTransaksiRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/downline/rekap-komisi': {
+      id: '/_authenticated/downline/rekap-komisi'
+      path: '/downline/rekap-komisi'
+      fullPath: '/downline/rekap-komisi'
+      preLoaderRoute: typeof AuthenticatedDownlineRekapKomisiRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/downline/list-transaksi': {
+      id: '/_authenticated/downline/list-transaksi'
+      path: '/downline/list-transaksi'
+      fullPath: '/downline/list-transaksi'
+      preLoaderRoute: typeof AuthenticatedDownlineListTransaksiRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/downline/list': {
+      id: '/_authenticated/downline/list'
+      path: '/downline/list'
+      fullPath: '/downline/list'
+      preLoaderRoute: typeof AuthenticatedDownlineListRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/downline/cek-transaksi': {
+      id: '/_authenticated/downline/cek-transaksi'
+      path: '/downline/cek-transaksi'
+      fullPath: '/downline/cek-transaksi'
+      preLoaderRoute: typeof AuthenticatedDownlineCekTransaksiRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/docs-api/lainnya': {
+      id: '/_authenticated/docs-api/lainnya'
+      path: '/docs-api/lainnya'
+      fullPath: '/docs-api/lainnya'
+      preLoaderRoute: typeof AuthenticatedDocsApiLainnyaRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/docs-api/documentation': {
+      id: '/_authenticated/docs-api/documentation'
+      path: '/docs-api/documentation'
+      fullPath: '/docs-api/documentation'
+      preLoaderRoute: typeof AuthenticatedDocsApiDocumentationRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
     }
   }
 }
@@ -616,7 +955,24 @@ const AuthenticatedSettingsRouteRouteWithChildren =
 
 interface AuthenticatedRouteRouteChildren {
   AuthenticatedSettingsRouteRoute: typeof AuthenticatedSettingsRouteRouteWithChildren
+  AuthenticatedCetakStrukRoute: typeof AuthenticatedCetakStrukRoute
   AuthenticatedIndexRoute: typeof AuthenticatedIndexRoute
+  AuthenticatedDocsApiDocumentationRoute: typeof AuthenticatedDocsApiDocumentationRoute
+  AuthenticatedDocsApiLainnyaRoute: typeof AuthenticatedDocsApiLainnyaRoute
+  AuthenticatedDownlineCekTransaksiRoute: typeof AuthenticatedDownlineCekTransaksiRoute
+  AuthenticatedDownlineListRoute: typeof AuthenticatedDownlineListRoute
+  AuthenticatedDownlineListTransaksiRoute: typeof AuthenticatedDownlineListTransaksiRoute
+  AuthenticatedDownlineRekapKomisiRoute: typeof AuthenticatedDownlineRekapKomisiRoute
+  AuthenticatedDownlineTotalTransaksiRoute: typeof AuthenticatedDownlineTotalTransaksiRoute
+  AuthenticatedInformasiDaftarHargaRoute: typeof AuthenticatedInformasiDaftarHargaRoute
+  AuthenticatedInformasiPengumumanRoute: typeof AuthenticatedInformasiPengumumanRoute
+  AuthenticatedMutasiDepositRoute: typeof AuthenticatedMutasiDepositRoute
+  AuthenticatedMutasiSaldoRoute: typeof AuthenticatedMutasiSaldoRoute
+  AuthenticatedMutasiTransaksiRoute: typeof AuthenticatedMutasiTransaksiRoute
+  AuthenticatedTransaksiCekRoute: typeof AuthenticatedTransaksiCekRoute
+  AuthenticatedTransaksiInvoiceRoute: typeof AuthenticatedTransaksiInvoiceRoute
+  AuthenticatedTransaksiListRoute: typeof AuthenticatedTransaksiListRoute
+  AuthenticatedTransaksiTotalRoute: typeof AuthenticatedTransaksiTotalRoute
   AuthenticatedAppsIndexRoute: typeof AuthenticatedAppsIndexRoute
   AuthenticatedChatsIndexRoute: typeof AuthenticatedChatsIndexRoute
   AuthenticatedHelpCenterIndexRoute: typeof AuthenticatedHelpCenterIndexRoute
@@ -626,7 +982,29 @@ interface AuthenticatedRouteRouteChildren {
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedSettingsRouteRoute: AuthenticatedSettingsRouteRouteWithChildren,
+  AuthenticatedCetakStrukRoute: AuthenticatedCetakStrukRoute,
   AuthenticatedIndexRoute: AuthenticatedIndexRoute,
+  AuthenticatedDocsApiDocumentationRoute:
+    AuthenticatedDocsApiDocumentationRoute,
+  AuthenticatedDocsApiLainnyaRoute: AuthenticatedDocsApiLainnyaRoute,
+  AuthenticatedDownlineCekTransaksiRoute:
+    AuthenticatedDownlineCekTransaksiRoute,
+  AuthenticatedDownlineListRoute: AuthenticatedDownlineListRoute,
+  AuthenticatedDownlineListTransaksiRoute:
+    AuthenticatedDownlineListTransaksiRoute,
+  AuthenticatedDownlineRekapKomisiRoute: AuthenticatedDownlineRekapKomisiRoute,
+  AuthenticatedDownlineTotalTransaksiRoute:
+    AuthenticatedDownlineTotalTransaksiRoute,
+  AuthenticatedInformasiDaftarHargaRoute:
+    AuthenticatedInformasiDaftarHargaRoute,
+  AuthenticatedInformasiPengumumanRoute: AuthenticatedInformasiPengumumanRoute,
+  AuthenticatedMutasiDepositRoute: AuthenticatedMutasiDepositRoute,
+  AuthenticatedMutasiSaldoRoute: AuthenticatedMutasiSaldoRoute,
+  AuthenticatedMutasiTransaksiRoute: AuthenticatedMutasiTransaksiRoute,
+  AuthenticatedTransaksiCekRoute: AuthenticatedTransaksiCekRoute,
+  AuthenticatedTransaksiInvoiceRoute: AuthenticatedTransaksiInvoiceRoute,
+  AuthenticatedTransaksiListRoute: AuthenticatedTransaksiListRoute,
+  AuthenticatedTransaksiTotalRoute: AuthenticatedTransaksiTotalRoute,
   AuthenticatedAppsIndexRoute: AuthenticatedAppsIndexRoute,
   AuthenticatedChatsIndexRoute: AuthenticatedChatsIndexRoute,
   AuthenticatedHelpCenterIndexRoute: AuthenticatedHelpCenterIndexRoute,
